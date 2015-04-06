@@ -1,19 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link href="//fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet" type="text/css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="http://140.115.189.142:3000/css/home.css">
+		<script src="http://140.115.189.142:3000/javascript/home.js"></script>
+		<meta name="csrf-token" content="ifrqH31J2yWTzrM945Blv8zWwspqA73wZPjwYxYS">
+		<!--
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        
+        -->
 	</head>
-
-	<body>
-		<!--<h1>Creat A Note!</h1>-->
 		
-
+	<body>
 		<div class="container">
 			<div class="row">
 				<div class="panel panel-default">
@@ -62,20 +67,8 @@
 		<script src="creatanote.js"></script>
     
     	<?php
-    		$localnickname=$_POST["Nickname"];
-    		$localtitle=$_POST["Title"];
-    		$localcomment=$_POST["Comment"];
-
-		?>
-    		{
-    		"Nickname" : "$localnickname",
-    		"Title" : "$localtitleo",
-    		"Comment" :"$localcomment"
-    		}
-    	
+    		include("shownote.php");
+    	?>	
     
 	</body>
-
-
-
 </html>

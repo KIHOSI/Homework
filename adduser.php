@@ -50,8 +50,11 @@
 			{
 				$sql = "INSERT INTO user(Username,Password,Email) VALUES (?,?,?)";
 				$query = $link ->prepare($sql);
-				$query ->bind_param("sss",$username,$localpassword,$localemail);
+				$query ->bind_param("sss",$localuser,$localpassword,$localemail);
 				$query -> execute();
+
+				echo $query->error;
+
 			}
 			/*
 			$stmt = $conn->prepare("INSERT INTO user(Username,Password,Email) VALUES(?,?,?)");

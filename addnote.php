@@ -11,9 +11,9 @@
 
 		<?php
 
-		$localnickname=$_POST["Nickname"];
-		$localtitle=$_POST["Title"];
-		$localcomment=$_POST["Comment"];
+		$localnickname=htmlspecialchars($_POST["Nickname"]);
+		$localtitle=htmlspecialchars($_POST["Title"]);
+		$localcomment=htmlspecialchars($_POST["Comment"]);
 		
 		echo $localnickname;
 		?><br>

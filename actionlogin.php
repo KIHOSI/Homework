@@ -30,15 +30,28 @@
 				$loginuser = $_POST["loginUsername"];
 				$loginpass = $_POST["loginPassword"];
 
-				$sql = "SELECT Username,Password FROM user WHERE Username=?";
+				$sql = "SELECT Password FROM user WHERE Username=?";
 				
 				//$sql = "INSERT INTO user(Username,Password) VALUES (?,?)";
 				$query2 = $link ->prepare($sql);
-				$query2 ->bind_param("ss",$loginuser,$loginpass);
+				$query2 ->bind_param("s",$loginuser);
 				$query2 -> execute();
-				$get_result = $query2 -> get_result();
+				$query2 ->store_result();
+				$check = $query2->num_rows;
+
+				$query2 ->bind_result($p);
+				$query2 ->fetch();
+				
+
+				/*echo $u.$p;
+
+				
+
+				echo $check;*/
+				/*$get_result = $query2 -> get_result();
 				$row = $get_result ->fetch_assoc();
 				$check = $row['Username'];
+				$checkrow -> mysqli_num_rows($check);*/
 
 
 
@@ -58,11 +71,22 @@
 				}
 				else
 				{
-					while(list($localuser,$localpass)
-						=mysqli_fetch_row($result))
-					{
+					/*while(list($localuser,$localpass)
+						=mysqli_fetch_row($result))*/
+					/*$result = $query2 ->get_result();
+					/*while()
+					{*/
+						if($p==$loginpass)
+						{
+							$_SESSION["Username"] = $loginuser;
+							echo "success!<br>";
+							echo " Welcome to back!<br>";
+							echo $_SESSION["Username"]."<br>"; 
+							echo "<a href='home2.php' class='btn btn-danger'>click here</a>";
 
-						
+						}
+						/*$row = $result->fetch_array(MYSQLI_ASSOC);
+						var_dump($row);
 						if(($localuser == $loginuser )&&($localpass == $loginpass))
 						{ 
 							$_SESSION["Username"] = $loginuser;
@@ -73,12 +97,12 @@
 							echo $_SESSION["Username"]."<br>"; 
 							echo "<a href='home2.php' class='btn btn-danger'>click here</a>";
 							
-
+						*/
 						/*$_SESSION["name"]=$_POST["loginUsername"];*/
 						/*$_SESSION['name']->$_SESSION['loginuser']; */
 
 						//$localname = $_POST["loginUsername"];
-						}
+						
 						
 					else
 					{
@@ -89,7 +113,7 @@
 					
 				//}
 					}	
-				}
+				//}
 			}	
 			//($loginuser!=" " )&& ($loginpass !=" " )&& 
 
